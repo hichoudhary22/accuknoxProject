@@ -1,9 +1,11 @@
 import { useState } from "react";
-import widgetsStore from "../data/widgetStore";
+import { categories } from "../data/defination";
 
 export default function WidgetSidePanel({
+  widgetStoreState,
   setShowWidgetSidePanel,
 }: {
+  widgetStoreState: Array<categories>;
   setShowWidgetSidePanel: (arg0: boolean) => void;
 }) {
   const [activeCategory, setActiveCategory] = useState(1);
@@ -16,7 +18,7 @@ export default function WidgetSidePanel({
         X
       </button>
       <div className="flex gap-1">
-        {widgetsStore.map((category) => (
+        {widgetStoreState.map((category) => (
           <button
             onClick={() => setActiveCategory(category.id)}
             className={`border border-black px-2 ${
@@ -28,7 +30,7 @@ export default function WidgetSidePanel({
         ))}
       </div>
       <div>
-        {widgetsStore.map((category) => {
+        {widgetStoreState.map((category) => {
           if (category.id === activeCategory)
             return category.widgets.map((widget) => (
               <div className="flex gap-1">

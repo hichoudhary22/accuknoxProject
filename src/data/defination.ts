@@ -5,3 +5,9 @@ export interface widget {
   details: string;
   added: boolean;
 }
+
+export interface categories {
+  id: number;
+  name: string;
+  widgets: Array<widget>;
+}

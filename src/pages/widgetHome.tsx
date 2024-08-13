@@ -1,11 +1,13 @@
-import widgetsStore from "../data/widgetStore";
+import { categories } from "../data/defination";
 
 export default function WidgetHome({
+  widgetStoreState,
   setShowWidgetSidePanel,
 }: {
+  widgetStoreState: Array<categories>;
   setShowWidgetSidePanel: (arg0: boolean) => void;
 }) {
-  return widgetsStore.map((category) => (
+  return widgetStoreState.map((category) => (
     <section key={category.id} className="border p-2 m-2">
       <h1 className="text-xl">{category.name}</h1>
       <div className="flex gap-2">
