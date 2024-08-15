@@ -15,15 +15,21 @@ export default function SearchResultPanel({
       >
         X
       </button>
-      {searchResult.map((widget) => (
-        <div key={widget.id} className="flex gap-2 border border-black p-2">
-          <p className="p-4 border border-black">image</p>
-          <div>
-            <h1 className="text-xl">{widget.title}</h1>
-            <p className="">{widget.details}</p>
+      {searchResult.length > 0 ? (
+        searchResult.map((widget) => (
+          <div key={widget.id} className="flex gap-2 border border-black p-2">
+            <p className="p-4 border border-black">image</p>
+            <div>
+              <h1 className="text-xl">{widget.title}</h1>
+              <p className="">{widget.details}</p>
+            </div>
           </div>
+        ))
+      ) : (
+        <div>
+          <p>no widget found</p>
         </div>
-      ))}
+      )}
     </div>
   );
 }

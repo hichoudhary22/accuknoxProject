@@ -1,30 +1,14 @@
-import { useState } from "react";
 import Navbar from "./components/navbar";
 import WidgetHome from "./pages/widgetHome";
-import WidgetSidePanel from "./pages/widgetSidePanel";
-import widgetsStore from "./data/widgetStore";
-import { categories } from "./data/defination";
+import AppContextProvider from "./context.tsx/appContext";
 
-function App() {
-  const [showWidgetSidePanel, setShowWidgetSidePanel] = useState(false);
-  const [widgetStoreState, setWidgetStoreState] =
-    useState<Array<categories>>(widgetsStore);
-
+export default function App() {
   return (
     <main className="p-4">
-      <Navbar setShowWidgetSidePanel={setShowWidgetSidePanel} />
-      <WidgetHome
-        widgetStoreState={widgetStoreState}
-        setShowWidgetSidePanel={setShowWidgetSidePanel}
-      />
-      {showWidgetSidePanel && (
-        <WidgetSidePanel
-          widgetStoreState={widgetStoreState}
-          setShowWidgetSidePanel={setShowWidgetSidePanel}
-        />
-      )}
+      <AppContextProvider>
+        <Navbar />
+        <WidgetHome />
+      </AppContextProvider>
     </main>
   );
 }
-
-export default App;

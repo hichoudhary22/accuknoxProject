@@ -3,7 +3,6 @@ export interface widget {
   title: string;
   image: string;
   details: string;
-  added: boolean;
 }
 
 export interface categories {

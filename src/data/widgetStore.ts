@@ -1,3 +1,5 @@
+export const activeWidgets = [11, 21, 22, 31, 32, 41, 42];
+
 const widgetsStore = [
   {
     id: 1,
@@ -8,14 +10,12 @@ const widgetsStore = [
         title: "category1 widget1",
         image: "",
         details: "",
-        added: false,
       },
       {
         id: 12,
         title: "category1 widget2",
         image: "",
         details: "",
-        added: true,
       },
     ],
   },
@@ -28,14 +28,12 @@ const widgetsStore = [
         title: "category2 widget1",
         image: "",
         details: "",
-        added: true,
       },
       {
         id: 22,
         title: "category2 widget2",
         image: "",
         details: "",
-        added: true,
       },
     ],
   },
@@ -48,14 +46,12 @@ const widgetsStore = [
         title: "category3 widget1",
         image: "",
         details: "",
-        added: true,
       },
       {
         id: 32,
         title: "category3 widget2",
         image: "",
         details: "",
-        added: true,
       },
     ],
   },
@@ -68,14 +64,12 @@ const widgetsStore = [
         title: "category4 widget1",
         image: "",
         details: "",
-        added: true,
       },
       {
         id: 42,
         title: "category4 widget2",
         image: "",
         details: "",
-        added: true,
       },
     ],
   },
