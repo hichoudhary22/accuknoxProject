@@ -11,15 +11,31 @@ export default function WidgetHome() {
     setShowWidgetSidePanel,
   } = useContext(AppContext);
   return appWidgetData.map((category) => (
-    <section key={category.id} className="border p-2 m-2">
-      <h1 className="text-xl">{category.name}</h1>
+    <section key={category.id} className="border-b border-black p-2 m-2">
+      <h1 className="text-xl font-bold my-2 uppercase">{category.name}</h1>
       <div className="flex gap-2">
         {category.widgets.map((widget) => {
           if (activeWidgetArray.includes(widget.id)) {
             return (
-              <div key={widget.id} className="flex flex-col border p-2">
+              <div
+                key={widget.id}
+                className="flex border border-black rounded-md p-2"
+              >
+                <div className="m-4 flex">
+                  <img
+                    src={widget.image}
+                    className="border p-4 m-2 rounded-md"
+                    alt="widget image"
+                    width={70}
+                    height={70}
+                  />
+                  <div>
+                    <p className="text-xl font-semiboldb">{widget.title}</p>
+                    <p className="text-sm font-thin">{widget.details}</p>
+                  </div>
+                </div>
                 <button
-                  className="self-end border border-black px-1"
+                  className="self-start border border-black px-2 py-[2px] rounded-full bg-black text-white"
                   onClick={() =>
                     setActiveWidgetArray((oldArray) =>
                       oldArray.filter((widgetId) => widgetId !== widget.id)
@@ -28,18 +44,18 @@ export default function WidgetHome() {
                 >
                   X
                 </button>
-                <div className="flex p-2">
-                  <p className="border p-4 m-2">image</p>
-                  <div>
-                    <p>{widget.title}</p>
-                    <p>{widget.details}</p>
-                  </div>
-                </div>
               </div>
             );
           }
         })}
-        <button onClick={() => setShowWidgetSidePanel(true)}>add widget</button>
+        <div className="flex">
+          <button
+            className="bg-black text-white rounded-md p-2 justify-center self-center"
+            onClick={() => setShowWidgetSidePanel(true)}
+          >
+            Add Widget
+          </button>
+        </div>
         {showWidgetSidePanel && <WidgetSidePanel />}
       </div>
     </section>

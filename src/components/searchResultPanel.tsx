@@ -8,23 +8,34 @@ export default function SearchResultPanel({
   setShowSearchResultPanel: (arg0: boolean) => void;
 }) {
   return (
-    <div className="z-10 absolute border border-black p-4 m-2 gap-2 bg-white flex flex-col overflow-scroll max-h-[80vh]">
+    <div className="z-10 absolute border border-black p-4 m-2 flex flex-col bg-white rounded-md">
       <button
         onClick={() => setShowSearchResultPanel(false)}
-        className="border border-black p-2 justify-end"
+        className="bg-black text-white p-2 rounded-md sticky top-0"
       >
         X
       </button>
       {searchResult.length > 0 ? (
-        searchResult.map((widget) => (
-          <div key={widget.id} className="flex gap-2 border border-black p-2">
-            <p className="p-4 border border-black">image</p>
-            <div>
-              <h1 className="text-xl">{widget.title}</h1>
-              <p className="">{widget.details}</p>
+        <div className="overflow-scroll max-h-[80vh] gap-2 flex flex-col my-2">
+          {searchResult.map((widget) => (
+            <div
+              key={widget.id}
+              className="flex gap-2 border border-black p-2 rounded-md bg-white"
+            >
+              <img
+                src={widget.image}
+                className="border p-4 m-2 rounded-md"
+                alt="widget image"
+                width={70}
+                height={70}
+              />
+              <div>
+                <h1 className="text-xl">{widget.title}</h1>
+                <p className="">{widget.details}</p>
+              </div>
             </div>
-          </div>
-        ))
+          ))}
+        </div>
       ) : (
         <div>
           <p>no widget found</p>

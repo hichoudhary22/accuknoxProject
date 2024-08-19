@@ -8,11 +8,14 @@ export default function Navbar() {
     useContext(AppContext);
   return (
     <div className="flex justify-between">
-      <h1 className="text-2xl">Dashboard</h1>
+      <h1 className="text-3xl font-bold">Dashboard</h1>
       <div className="flex items-center gap-2">
         <SearchPanel />
-        <button onClick={() => setShowWidgetSidePanel((oldState) => !oldState)}>
-          add widget
+        <button
+          className="bg-black text-white rounded-full px-2 py-[6px]"
+          onClick={() => setShowWidgetSidePanel((oldState) => !oldState)}
+        >
+          Add Widget
         </button>
         {showWidgetSidePanel && <WidgetSidePanel />}
       </div>

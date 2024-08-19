@@ -24,15 +24,20 @@ export default function SearchPanel() {
   }, [showSearchResultPanel]);
 
   return (
-    <div className=" border-black border">
+    <div className=" border-black border rounded-full">
       <input
         type="text"
-        className="border border-black px-2"
+        className="focus:outline-none py-1 px-2 rounded-full"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
-        placeholder="search for widget title"
+        placeholder="Search For Widget Title"
       />
-      <button onClick={handleSearch}>search</button>
+      <button
+        className="bg-black text-white rounded-full py-[3px] px-[6px] m-[2px] justify-center self-center"
+        onClick={handleSearch}
+      >
+        Search
+      </button>
       {showSearchResultPanel && (
         <SearchResultPanel
           searchResult={searchResult}
